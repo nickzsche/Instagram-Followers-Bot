@@ -84,8 +84,10 @@ class MyApp(QtWidgets.QMainWindow):
 
     def TakipEt(self):
         def TakipEtTh():
+            
             browser = webdriver.Chrome("chromedriver.exe")
             browser.get("https://www.instagram.com")
+            print("Çalıştım")
             user = self.ui.lineEdit.text()
             password = self.ui.lineEdit_2.text()
             time.sleep(2)
@@ -93,15 +95,16 @@ class MyApp(QtWidgets.QMainWindow):
             browser.find_element_by_name("password").send_keys(password)
             browser.find_element_by_xpath(
                 "//*[@id='loginForm']/div/div[3]/button/div").click()
-            time.sleep(3)
+            time.sleep(15)
             followLink = open("FollowersList.txt", "r")
             for userlink in followLink:
                 browser.get(userlink)
                 time.sleep(3)
-                tikla = browser.find_element_by_tag_name("button")
-                tikla.click()
+                Follow_Button = browser.find_element_by_xpath("//*[text()='Follow']")
+                print(Follow_Button.text)
+                Follow_Button.click()
                 time.sleep(3)
-
+                
         TakipEtThread = threading.Thread(target=TakipEtTh)
         TakipEtThread.start()
 
