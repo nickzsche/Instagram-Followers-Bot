@@ -64,7 +64,7 @@ class MyApp(QtWidgets.QMainWindow):
                     time.sleep(2)
                     newCount = len(dialog.find_elements_by_css_selector("li"))
 
-                    if followerCount < 50:
+                    if followerCount < 250:
                         followerCount = newCount
                         print(f"Güncel liste {newCount}")
                         time.sleep(3)
