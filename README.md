@@ -22,4 +22,5 @@
  - Zamana göre beğeni
  - Zamana göre yorum
  - Otomatik çekilişlere yorum atma ve etiketleme
+ - Çekiliş düzenleme
  
